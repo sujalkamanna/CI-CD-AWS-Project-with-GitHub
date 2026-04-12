@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     AWS_ACCOUNT_ID: "047492346856"
-    REPOSITORY_NAME: "CI-CD-AWS-Project-with-GitHub"
+    REPOSITORY_NAME: "ci-cd-aws-project-with-github"
     CONTAINER_NAME: "website"
     CLUSTER_NAME: "websitecluster"
     AWS_DEFAULT_REGION: "ap-south-1"

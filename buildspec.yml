@@ -13,19 +13,36 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
+
+      # Define ECR URI (IMPORTANT)
       - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REPOSITORY_NAME
+      - echo "REPOSITORY_URI=$REPOSITORY_URI"
+
+      # Verify identity (debug)
+      - aws sts get-caller-identity
+
+      # Login to ECR
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI
 
   build:
     commands:
       - echo Build started on `date`
+      - echo Building Docker image...
+
+      # Dockerfile is in ROOT
       - docker build -t $REPOSITORY_NAME:$IMAGE_TAG .
+
+      # Tag for ECR
       - docker tag $REPOSITORY_NAME:$IMAGE_TAG $REPOSITORY_URI:$IMAGE_TAG
 
   post_build:
     commands:
       - echo Build completed on `date`
+
+      # Push to ECR
       - docker push $REPOSITORY_URI:$IMAGE_TAG
+
+      # Create ECS imagedefinitions.json
       - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 
 artifacts:

@@ -19,6 +19,36 @@ A complete automated deployment pipeline for a security website using Docker, AW
 
 This project demonstrates a **complete CI/CD pipeline** that automatically builds, pushes, and deploys a website whenever code is pushed to GitHub.
 
+## 🏗️ Architecture Overview
+
+### ECS Deployment Architecture
+
+![ECS Architecture Diagram](outputs/ecs_archicture.jpg)
+
+*Amazon ECS with AWS Fargate - showing the relationship between ECR, Task Definition, Service, and Tasks*
+
+### Deployment Workflow
+
+1. **Create Cluster** - Set up the logical grouping where your services will reside
+2. **Create Task Definition** - Define container blueprint (image, CPU, memory, ports)
+3. **Create Service** - Configure desired number of tasks and load balancing
+4. **Deploy Tasks** - ECS places tasks on AWS Fargate managed infrastructure
+
+### Key Components
+
+| Component | Description |
+|-----------|-------------|
+| **Amazon ECR** | Managed Docker container registry that stores and manages your container images |
+| **Task Definition** | Blueprint configuration that describes how Docker containers should run |
+| **ECS Cluster** | Logical grouping where tasks and services reside |
+| **ECS Service** | Maintains specified number of task instances with load balancing |
+| **Task** | Individual running instance of a container |
+| **AWS Fargate** | Serverless compute engine - no EC2 management needed |
+
+---
+
+📖 **For detailed step-by-step instructions on setting up this entire CI/CD pipeline, Docker containerization, and AWS best practices, please refer to our [Complete DevOps Workflow Guide](./workflow.md).**
+
 ### Architecture Flow:
 ```
 GitHub Repository

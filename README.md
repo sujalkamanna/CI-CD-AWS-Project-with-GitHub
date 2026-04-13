@@ -12,7 +12,7 @@ A complete automated deployment pipeline for a security website using Docker, AW
 4. [Step-by-Step Setup](#step-by-step-setup)
 5. [Testing & Verification](#testing--verification)
 6. [Cleanup](#cleanup)
-
+- 📖 [**Full Workflow Guide & Instructions**](./WORKFLOW.md) - Complete step-by-step guide for CI/CD setup, Docker deployment, ECS/EKS options, and AWS best practices
 ---
 
 ## 🎯 Project Overview

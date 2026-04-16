@@ -2,11 +2,11 @@ version: 0.2
 
 env:
   variables:
-    AWS_ACCOUNT_ID: "047492346856"
-    REPOSITORY_NAME: "ci-cd-aws-project-with-github"
-    CONTAINER_NAME: "website"
-    CLUSTER_NAME: "websitecluster"
-    AWS_DEFAULT_REGION: "ap-south-1"
+    AWS_ACCOUNT_ID: "0000000000000"
+    REPOSITORY_NAME: "repo-name"
+    CONTAINER_NAME: "cont-name"
+    CLUSTER_NAME: "your-cluter-name"
+    AWS_DEFAULT_REGION: "eu-south-1"
     IMAGE_TAG: "latest"
 
 phases:
